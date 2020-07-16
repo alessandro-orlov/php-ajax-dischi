@@ -40,9 +40,6 @@
 
         <h2>Stampo i dischi con la chiamata AJAX</h2>
         <div class="cds-container tamplate">
-
-
-          </div>
           <!-- tamplate goes here -->
         </div>
       </div>
