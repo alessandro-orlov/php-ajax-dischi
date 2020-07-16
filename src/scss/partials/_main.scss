@@ -1,36 +1,40 @@
+h2 {
+color: #fff;
+margin: 20px;
+}
 .cds-container {
     @include flex_main_properties;
     flex-wrap: wrap;
-    padding: 100px 0;
-}
+    padding: 50px 0;
+    justify-content: center;
 
-.cd {
-    @include flex_main_properties;
-    flex-direction: column;
-    flex-basis: 200px;
-    padding: 20px;
-    margin: 10px 20px;
-    height: 360px;
-    background: rgb(46, 58, 70);
-    text-align: center;
-}
+    .cd {
+        @include flex_main_properties;
+        flex-direction: column;
+        flex-basis: 200px;
+        padding: 20px;
+        margin: 10px 20px;
+        height: 360px;
+        background: rgb(46, 58, 70);
+        text-align: center;
 
-.cd img {
-    max-width: 100%;
-}
+        img {
+            max-width: 100%;
+        }
+        h3 {
+            margin: 20px 0;
+            color: white;
+            font-size: 22px;
+            text-transform: uppercase;
+        }
 
-.cd h3 {
-    margin: 20px 0;
-    color: white;
-    font-size: 22px;
-    text-transform: uppercase;
-}
+        span.author {
+            color: grey;
+            font-size: 20px;
+        }
 
-.cd span.author {
-    color: grey;
-    font-size: 20px;
-}
-
-.cd span.year {
-    color: grey;
+        span.year {
+            color: grey;
+        }
+    }
 }

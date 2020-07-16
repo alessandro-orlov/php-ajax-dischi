@@ -24,18 +24,22 @@
     </header>
 
     <main>
-      <div class="cds-container container">
-
-        <?php foreach ($database as $key_index => $value) { ?>
-          <div class="cd">
-              <img src="<?php echo $value['poster'] ?>" alt="{{author}}">
-              <h3><?php echo $value['title'] ?></h3>
-              <span class="author"><?php echo $value['author'] ?></span>
-              <span class="year"><?php echo $value['year'] ?></span>
-          </div>
-        <?php } ?>
+      <div class="container">
+        <!-- Stamo a schermo con php -->
+        <h2>Stampo i dischi con PHP</h2>
+        <div class="cds-container">
+          <?php foreach ($database as $key_index => $value) { ?>
+            <div class="cd">
+                <img src="<?php echo $value['poster'] ?>" alt="{{author}}">
+                <h3><?php echo $value['title'] ?></h3>
+                <span class="author"><?php echo $value['author'] ?></span>
+                <span class="year"><?php echo $value['year'] ?></span>
+            </div>
+          <?php } ?>
+        </div>
 
       </div>
+
     </main>
 
     <!-- handlebars tamplate -->
