@@ -38,19 +38,26 @@
           <?php } ?>
         </div>
 
+        <h2>Stampo i dischi con la chiamata AJAX</h2>
+        <div class="cds-container tamplate">
+
+
+          </div>
+          <!-- tamplate goes here -->
+        </div>
       </div>
 
     </main>
 
     <!-- handlebars tamplate -->
-    <!-- <script id="cd-template" type="text/x-handlebars-template">
+    <script id="cd-template" type="text/x-handlebars-template">
       <div class="cd">
           <img src="{{poster}}" alt="{{author}}">
           <h3>{{title}}</h3>
           <span class="author">{{author}}</span>
           <span class="year">{{year}}</span>
       </div>
-    </script> -->
+    </script>
 
     <!-- Script JS -->
     <script src="dist/app.js"></script>
