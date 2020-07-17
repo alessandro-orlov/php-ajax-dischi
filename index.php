@@ -35,6 +35,14 @@
         </div>
 
         <h2>Stampo i dischi con la chiamata AJAX</h2>
+        <!-- Select author -->
+        <div class="select-artist">
+          <span>Seleziona artista:</span>
+          <select class="author-select">
+            <!-- authors options -->
+          </select>
+        </div>
+
         <div class="cds-container tamplate">
           <!-- tamplate goes here -->
         </div>
@@ -47,9 +55,14 @@
       <div class="cd">
           <img src="{{poster}}" alt="{{author}}">
           <h3>{{title}}</h3>
-          <span class="author">{{author}}</span>
+          <span class="author" data-autore="{{author}}">{{author}}</span>
           <span class="year">{{year}}</span>
       </div>
+    </script>
+
+    <!-- handlebars tamplate -->
+    <script id="author-option" type="text/x-handlebars-template">
+      <option value="{{author}}">{{author}}</option>
     </script>
 
     <!-- Script JS -->

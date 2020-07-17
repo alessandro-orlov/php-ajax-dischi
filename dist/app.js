@@ -16087,30 +16087,33 @@ module.exports = g;
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+// packages installed with NPM
 var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 
-var Handlebars = __webpack_require__(/*! handlebars */ "./node_modules/handlebars/dist/cjs/handlebars.js");
+var Handlebars = __webpack_require__(/*! handlebars */ "./node_modules/handlebars/dist/cjs/handlebars.js"); // Begin JavaScript
+
 
 $(document).ready(function () {
   $.ajax({
     url: 'http://localhost:8888/php-ajax-dischi/server.php',
     method: 'GET',
     success: function success(cds) {
-      console.log(cds); // Handlebars setup
+      console.log(cds); // Handlebars cds tamplate
 
       var source = $('#cd-template').html();
-      var template = Handlebars.compile(source);
+      var template = Handlebars.compile(source); // Handlebars authors options in select tag
+
+      var source2 = $('#author-option').html();
+      var template2 = Handlebars.compile(source2);
 
       for (var i = 0; i < cds.length; i++) {
         var singleCd = cds[i];
-        var context = {
-          author: singleCd.author,
-          poster: singleCd.poster,
-          title: singleCd.title,
-          year: singleCd.year
-        };
+        console.log(singleCd);
+        var context = singleCd;
         var html = template(context);
+        var html2 = template2(context);
         $('.cds-container.tamplate').append(html);
+        $('.author-select').append(html2);
       }
     },
     error: function error(request, state, _error) {
