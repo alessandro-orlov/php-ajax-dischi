@@ -49,9 +49,11 @@
           <span>Seleziona artista (php foreach):</span>
           <select class="author-select-php">
             <option value="default" selected>Tutti</option>
-            <?php foreach ($database as $key_index => $value) { ?>
+
+            <?php foreach ($database as $value) { ?>
               <option value="<?php echo $value['author'] ?>" ><?php echo $value['author'] ?></option>
             <?php } ?>
+
           </select>
         </div>
 

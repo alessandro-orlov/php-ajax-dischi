@@ -14,26 +14,33 @@ $('.author-select').change( function() {
 });
 
 
-// ======================================================
-// ============== AJAX CALL =============================
-$.ajax(
-  {
-    url: 'http://localhost:8888/php-ajax-dischi/server.php',
-    method: 'GET',
-    success: function(cds) {
-      // console.log(cds);
+callDatabase();
 
-      printCds(cds)
-
-    },
-    error: function(request, state, error) {
-      alert('errore' + error);
-    }
-  }
-);
 
 // ================= FUNCTIONS =================================
-// =================printCds() =================================
+// =============================================================
+
+// =============================================================
+// =============== callDatabase() ==============================
+function callDatabase() {
+  $.ajax(
+    {
+      url: 'http://localhost:8888/php-ajax-dischi/server.php',
+      method: 'GET',
+      success: function(cds) {
+
+        printCds(cds)
+
+      },
+      error: function(request, state, error) {
+        alert('errore' + error);
+      }
+    }
+  );
+}
+
+// =============================================================
+// ================= printCds() ================================
 function printCds(arrayObjects) {
   // Handlebars cds tamplate
   var source = $('#cd-template').html();
