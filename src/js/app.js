@@ -5,6 +5,16 @@ var Handlebars = require("handlebars");
 // Begin JavaScript
 $(document).ready(function() {
 
+// ======================================================
+// ======== SELECT CHANGE ===============================
+$('.author-select').change( function() {
+  var author = $('.author-select').val();
+  console.log(author);
+
+});
+
+// ======================================================
+// ============== AJAX CALL =============================
 $.ajax(
   {
     url: 'http://localhost:8888/php-ajax-dischi/server.php',
@@ -22,7 +32,7 @@ $.ajax(
 
       for (var i = 0; i < cds.length; i++) {
         var singleCd = cds[i];
-        console.log(singleCd);
+        console.log(singleCd)
 
         var context = singleCd;
 

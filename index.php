@@ -39,6 +39,7 @@
         <div class="select-artist">
           <span>Seleziona artista:</span>
           <select class="author-select">
+            <option value="default" selected>Tutti</option>
             <!-- authors options -->
           </select>
         </div>
@@ -52,10 +53,10 @@
 
     <!-- handlebars tamplate -->
     <script id="cd-template" type="text/x-handlebars-template">
-      <div class="cd">
+      <div class="cd" data-autore="{{author}}">
           <img src="{{poster}}" alt="{{author}}">
           <h3>{{title}}</h3>
-          <span class="author" data-autore="{{author}}">{{author}}</span>
+          <span class="author">{{author}}</span>
           <span class="year">{{year}}</span>
       </div>
     </script>
