@@ -37,10 +37,21 @@
         <h2>Stampo i dischi con la chiamata AJAX</h2>
         <!-- Select author -->
         <div class="select-artist">
-          <span>Seleziona artista:</span>
+          <span>Seleziona artista (handlebars):</span>
           <select class="author-select">
             <option value="default" selected>Tutti</option>
             <!-- authors options -->
+          </select>
+        </div>
+
+        <!-- PHP SELECT -->
+        <div class="select-artist">
+          <span>Seleziona artista (php foreach):</span>
+          <select class="author-select-php">
+            <option value="default" selected>Tutti</option>
+            <?php foreach ($database as $key_index => $value) { ?>
+              <option value="<?php echo $value['author'] ?>" ><?php echo $value['author'] ?></option>
+            <?php } ?>
           </select>
         </div>
 
@@ -51,6 +62,7 @@
 
     </main>
 
+    <!-- ========================= END PAGE =========================== -->
     <!-- handlebars tamplate -->
     <script id="cd-template" type="text/x-handlebars-template">
       <div class="cd" data-autore="{{author}}">
