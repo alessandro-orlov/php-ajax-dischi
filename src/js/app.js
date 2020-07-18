@@ -7,28 +7,38 @@ $(document).ready(function() {
 
 // ======================================================
 // ======== SELECT CHANGE ===============================
-$('.author-select').change( function() {
-  var author = $('.author-select').val();
-  console.log(author);
+$('.author-select-php').change( function() {
+  // Reset "cds-container ajax-call"
+  $('.cds-container.ajax-call').html('');
+
+  // prendo il valore del autore disco dalla option select
+  var author = $('.author-select-php').val();
+
+  if (author === 'default') {
+    callApiCds();
+  } else {
+    // Stamp il cd con il valore author selezionato
+    callFiltredCds(author);
+  }
 
 });
 
+callApiCds();
 
-callDatabase();
+// ====================================================================== //
+// ========================== FUNCTIONS ================================= //
+// ====================================================================== //
 
-
-// ================= FUNCTIONS =================================
-// =============================================================
-
-// =============================================================
-// =============== callDatabase() ==============================
-function callDatabase() {
+// ========================================================
+// =============== callDatabase() =========================
+function callApiCds() {
   $.ajax(
     {
-      url: 'http://localhost:8888/php-ajax-dischi/server.php',
+      url: 'http://localhost:8888/php-ajax-dischi/apiCds.php',
       method: 'GET',
       success: function(cds) {
 
+        // Stampo i dischi dall'API
         printCds(cds)
 
       },
@@ -39,16 +49,13 @@ function callDatabase() {
   );
 }
 
-// =============================================================
-// ================= printCds() ================================
+// =========================================================
+// ================= printCds() ============================
 function printCds(arrayObjects) {
+
   // Handlebars cds tamplate
   var source = $('#cd-template').html();
   var template = Handlebars.compile(source);
-
-  // Handlebars authors options in select tag
-  var source2 = $('#author-option').html();
-  var template2 = Handlebars.compile(source2);
 
   // Ciclo sul array
   for (var i = 0; i < arrayObjects.length; i++) {
@@ -57,11 +64,34 @@ function printCds(arrayObjects) {
     var context = singleCd;
 
     var html = template(context);
-    var html2 = template2(context);
 
-    $('.cds-container.tamplate').append(html);
-    $('.author-select').append(html2);
+    $('.cds-container.ajax-call').append(html);
   }
 }
+
+// =========================================================
+// =============== CallFiltredCds() ========================
+function callFiltredCds(author) {
+
+  // Nella chiamata Ajax passo in data il valore selezionato
+  $.ajax(
+    {
+      url: 'http://localhost:8888/php-ajax-dischi/apiCdsFilter.php',
+      method: 'GET',
+      data: {
+        author: author,
+      },
+      success: function(filtredCds) {
+
+        // Stampo i dischi dall'API apiCdsFilter.php
+        printCds(filtredCds)
+
+      },
+      error: function(request, state, error) {
+        alert('errore' + error);
+      }
+    }
+  );
+} // End function callFiltredCds
 
 }); // End document ready

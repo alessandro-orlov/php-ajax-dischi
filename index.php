@@ -21,50 +21,45 @@
 
     <main>
       <div class="container">
-        <!-- Stamo a schermo con php -->
+        <!-- =========================================================== -->
+        <!-- ================== Stamo i dichi con PHP ================== -->
         <h2>Stampo i dischi con PHP</h2>
         <div class="cds-container">
-          <?php foreach ($database as $key_index => $value) { ?>
+          <?php foreach ($database as $singleCd) { ?>
             <div class="cd">
-                <img src="<?php echo $value['poster'] ?>" alt="{{author}}">
-                <h3><?php echo $value['title'] ?></h3>
-                <span class="author"><?php echo $value['author'] ?></span>
-                <span class="year"><?php echo $value['year'] ?></span>
+                <img src="<?php echo $singleCd['poster'] ?>" alt="{{author}}">
+                <h3><?php echo $singleCd['title'] ?></h3>
+                <span class="author"><?php echo $singleCd['author'] ?></span>
+                <span class="year"><?php echo $singleCd['year'] ?></span>
             </div>
           <?php } ?>
         </div>
 
+        <!-- =========================================================== -->
+        <!-- ===== Stamo i dischi con la chiamata API e handlebars ===== -->
         <h2>Stampo i dischi con la chiamata AJAX</h2>
-        <!-- Select author -->
-        <div class="select-artist">
-          <span>Seleziona artista (handlebars):</span>
-          <select class="author-select">
-            <option value="default" selected>Tutti</option>
-            <!-- authors options -->
-          </select>
-        </div>
-
+        
         <!-- PHP SELECT -->
         <div class="select-artist">
           <span>Seleziona artista (php foreach):</span>
           <select class="author-select-php">
             <option value="default" selected>Tutti</option>
-
-            <?php foreach ($database as $value) { ?>
-              <option value="<?php echo $value['author'] ?>" ><?php echo $value['author'] ?></option>
+            <!-- Begin PHP foreach -->
+            <?php foreach ($database as $singleCd) { ?>
+              <option value="<?php echo $singleCd['author'] ?>" ><?php echo $singleCd['author'] ?></option>
             <?php } ?>
-
+            <!-- End PHP foreach -->
           </select>
         </div>
 
-        <div class="cds-container tamplate">
+        <div class="cds-container ajax-call">
           <!-- tamplate goes here -->
         </div>
       </div>
 
     </main>
 
-    <!-- ========================= END PAGE =========================== -->
+    <!-- ====================== END CONTENT ON PAGE ======================== -->
     <!-- handlebars tamplate -->
     <script id="cd-template" type="text/x-handlebars-template">
       <div class="cd" data-autore="{{author}}">
@@ -76,9 +71,9 @@
     </script>
 
     <!-- handlebars tamplate -->
-    <script id="author-option" type="text/x-handlebars-template">
+    <!-- <script id="author-option" type="text/x-handlebars-template">
       <option value="{{author}}">{{author}}</option>
-    </script>
+    </script>   -->
 
     <!-- Script JS -->
     <script src="dist/app.js"></script>
