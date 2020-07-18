@@ -71,7 +71,8 @@ function printCds(arrayObjects) {
 
 // =========================================================
 // =============== CallFiltredCds() ========================
-function callFiltredCds(author) {
+// ---> argomento: autoreDisco è il valore del option select
+function callFiltredCds(autoreDisco) {
 
   // Nella chiamata Ajax passo in data il valore selezionato
   $.ajax(
@@ -79,7 +80,7 @@ function callFiltredCds(author) {
       url: 'http://localhost:8888/php-ajax-dischi/apiCdsFilter.php',
       method: 'GET',
       data: {
-        author: author,
+        author: autoreDisco,
       },
       success: function(filtredCds) {
 

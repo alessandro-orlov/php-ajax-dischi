@@ -15,7 +15,7 @@
     }
   }
 
-  // Converto l'array creato in JSON e lo metto nella variabile
+  // Converto nuovo array in JSON e lo metto nella variabile
   $filtred_cds = json_encode($filtred_database);
 
   header('Content-Type: application/json');

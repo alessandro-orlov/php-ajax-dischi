@@ -21,8 +21,8 @@
 
     <main>
       <div class="container">
-        <!-- =========================================================== -->
-        <!-- ================== Stamo i dichi con PHP ================== -->
+
+        <!-- Stamo i dichi con PHP  -->
         <h2>Stampo i dischi con PHP</h2>
         <div class="cds-container">
           <?php foreach ($database as $singleCd) { ?>
@@ -35,10 +35,10 @@
           <?php } ?>
         </div>
 
-        <!-- =========================================================== -->
-        <!-- ===== Stamo i dischi con la chiamata API e handlebars ===== -->
-        <h2>Stampo i dischi con la chiamata AJAX</h2>
-        
+
+        <!--  Stamo i dischi con la chiamata API e handlebars -->
+        <h2>Stampo i dischi con la chiamata AJAX e handlebars</h2>
+
         <!-- PHP SELECT -->
         <div class="select-artist">
           <span>Seleziona artista (php foreach):</span>
@@ -59,7 +59,7 @@
 
     </main>
 
-    <!-- ====================== END CONTENT ON PAGE ======================== -->
+
     <!-- handlebars tamplate -->
     <script id="cd-template" type="text/x-handlebars-template">
       <div class="cd" data-autore="{{author}}">
@@ -70,12 +70,7 @@
       </div>
     </script>
 
-    <!-- handlebars tamplate -->
-    <!-- <script id="author-option" type="text/x-handlebars-template">
-      <option value="{{author}}">{{author}}</option>
-    </script>   -->
-
-    <!-- Script JS -->
+    <!-- link Script JS -->
     <script src="dist/app.js"></script>
   </body>
 </html>
